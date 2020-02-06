@@ -13,6 +13,7 @@ public class Driver {
 		 * Test case 1
 		 */
 		int[] arr1 = { 0, 1, 13, 8, 6, 9 };
+		System.out.println("** Test 1 **");
 		System.out.println(Arrays.toString(arr1));
 		MaxHeap mh1 = new MaxHeap(arr1);
 		mh1.printMaxHeap();
@@ -23,6 +24,7 @@ public class Driver {
 		 * Test case 2
 		 */
 		int[] arr2 = { 0, 2, 10, 5, 4, 7 };
+		System.out.println("** Test 2 **");
 		System.out.println(Arrays.toString(arr2));
 		MaxHeap mh2 = new MaxHeap(arr2);
 		mh2.printMaxHeap();
@@ -33,6 +35,7 @@ public class Driver {
 		 * Test case 3
 		 */
 		int[] arr3 = { 0, 4, 3, 2, 16, 9, 10, 14, 8, 7 };
+		System.out.println("** Test 3 **");
 		System.out.println(Arrays.toString(arr3));
 		MaxHeap mh3 = new MaxHeap(arr3);
 		mh3.printMaxHeap();
@@ -43,6 +46,7 @@ public class Driver {
 		 * Test case 4: test the boundary condition of 1 element in array
 		 */
 		int[] arr4 = { 0, 1 };
+		System.out.println("** Test 4 **");
 		System.out.println(Arrays.toString(arr4));
 		MaxHeap mh4 = new MaxHeap(arr4);
 		mh4.printMaxHeap();
@@ -56,6 +60,7 @@ public class Driver {
 		for (int i = 1; i < 101; i++) {
 			arr5[i] = randn.nextInt(101);
 		}
+		System.out.println("** Test 5 **");
 		System.out.println(Arrays.toString(arr5));
 		MaxHeap mh5 = new MaxHeap(arr5);
 		mh5.printMaxHeap();
