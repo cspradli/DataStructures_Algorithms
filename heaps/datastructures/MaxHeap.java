@@ -12,20 +12,40 @@ public MaxHeap(int[] input) {
 	array = Arrays.copyOfRange(input, 0, input.length);
 	heapsize = array.length-1;
 	buildMaxHeap();
-	printMaxHeap();
+	int[] arr_out = Arrays.copyOfRange(array, 1, array.length);
+	System.out.println(Arrays.toString(arr_out));
 	
 }
 
+/**
+ * @param index
+ * @return the index of the left child within the array/heap
+ */
 private int leftChildOf(int index) {
-	return (2 * index);
-	
+	int ret_value = 2*index;
+	if (index > array.length || ret_value > array.length) {
+		return -1;
+	}
+	return ret_value;
 }
-
+/**
+ * 
+ * @param index
+ * @return the index of the right child within the array/heap
+ *
+ */
 private int rightChildOf(int index) {
-	return 2 * index + 1;
+	int ret_value = 2*index+1;
+	if (index > array.length || ret_value > array.length) {
+		return -1;
+	}
+	return ret_value;
 }
 	
-
+/**
+ * Writes out the content of heaps array data field.
+ * Copies the array from 1 to array.length because of zero indexing
+ */
 public void printMaxHeap() {
 	int[] arr_out = Arrays.copyOfRange(array, 1, array.length);
 	System.out.println("Heap size: " + heapsize);
@@ -52,15 +72,16 @@ public void maxHeapify(int index) {
 	
 	int left = leftChildOf(index);
 	int right = rightChildOf(index);
+	
 	int largest = 0;
 	
-	if ((left <= heapsize) && (array[left] > array[index])) {
+	if ((left != -1) &&(left <= heapsize) && (array[left] > array[index])) {
 		largest = left;
 	} else {
 		largest = index;
 	}
 	
-	if (right <= heapsize && array[right] > array[largest]) largest = right;
+	if (right != -1 && right <= heapsize && array[right] > array[largest]) largest = right;
 	
 	if (largest != index) {
 		swap(index, largest);
@@ -69,12 +90,20 @@ public void maxHeapify(int index) {
 	
 }
 
+/**
+ * Loop which invokes maxHeapify
+ * 
+ */
 private void buildMaxHeap() {
 	for (int i = (heapsize/2); i >= 1; i--) {
 		maxHeapify(i);
 	}
 }
 
+/**
+ * Makes use of buildMaxHeap and maxHeapify to sort the heap
+ * 
+ */
 public void heapsort() {
 	buildMaxHeap();
 	int backup = heapsize;
@@ -83,6 +112,6 @@ public void heapsort() {
 		heapsize -= 1;
 		maxHeapify(1);
 	}
-	
+	heapsize = backup;
 }
 }
