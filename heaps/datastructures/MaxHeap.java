@@ -1,4 +1,4 @@
-package heaps;
+package heaps.datastructures;
 
 import java.util.Arrays;
 
@@ -11,6 +11,7 @@ private int heapsize;
 public MaxHeap(int[] input) {
 	array = Arrays.copyOfRange(input, 0, input.length);
 	heapsize = array.length-1;
+	buildMaxHeap();
 	printMaxHeap();
 	
 }

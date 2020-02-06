@@ -1,4 +1,4 @@
-package heaps;
+package heaps.datastructures;
 
 import java.util.Random;
 
