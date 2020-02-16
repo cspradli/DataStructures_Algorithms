@@ -24,7 +24,7 @@ public class MaxHeap {
 		array = Arrays.copyOfRange(input, 0, input.length);
 		heapsize = array.length - 1;
 		buildMaxHeap();
-
+		System.out.println(Arrays.toString(Arrays.copyOfRange(array, 1, array.length)));
 	}
 
 	/**
@@ -106,9 +106,14 @@ public class MaxHeap {
 	 * Loop which invokes maxHeapify
 	 * 
 	 */
-	private void buildMaxHeap() {
+	public void buildMaxHeap() {
+		System.out.println(Arrays.toString(Arrays.copyOfRange(array, 1, array.length)));
+		int j = 0;
 		for (int i = (heapsize / 2); i >= 1; i--) {
 			maxHeapify(i);
+			System.out.println("At index " + i);
+			System.out.println("\nIter " + j + ":\n "+ Arrays.toString(Arrays.copyOfRange(array, 1, array.length)) + "\n");
+			j++;
 		}
 	}
 
@@ -118,11 +123,14 @@ public class MaxHeap {
 	 */
 	public void heapsort() {
 		buildMaxHeap();
+		System.out.println(Arrays.toString(Arrays.copyOfRange(array, 1, array.length)));
 		int backup = heapsize;
 		for (int i = heapsize; i >= 2; i--) {
 			swap(1, i);
+			System.out.println("Swap "+ Arrays.toString(Arrays.copyOfRange(array, 1, array.length)));
 			heapsize -= 1;
 			maxHeapify(1);
+			System.out.println(Arrays.toString(Arrays.copyOfRange(array, 1, array.length)));
 		}
 		heapsize = backup;
 	}
